@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サイト管理ポータル</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f1f5f9;
+      color: #334155;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .search-box {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      outline: none;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-box:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      border-color: #93c5fd;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+    }
+    .card-desc {
+      font-size: 0.875rem;
+      color: #475569;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+    .card-desc.unknown {
+      color: #94a3b8;
+      font-style: italic;
+    }
+    .card-footer {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+    .card-link-text {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>サイト管理ポータル</h1>
+
+    <!-- 検索バー（自動で絞り込みが行われます） -->
+    <input type="text" id="searchInput" class="search-box" placeholder="サイト名、説明、URLなどで検索...">
+
+    <div class="grid" id="siteList">
+
+      <!-- バスの時間 -->
+      <a href="https://uu3675243-blip.github.io/jikokuhyou/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">バスの時間</div>
+          <div class="card-desc">バスの時間</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/jikokuhyou/</div>
+        </div>
+      </a>
+
+      <!-- ウノ -->
+      <a href="https://uu3675243-blip.github.io/UNO/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">ウノ</div>
+          <div class="card-desc">ウノ</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/UNO/</div>
+        </div>
+      </a>
+
+      <!-- 将棋 -->
+      <a href="https://uu3675243-blip.github.io/shogi/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">将棋</div>
+          <div class="card-desc">将棋</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/shogi/</div>
+        </div>
+      </a>
+
+      <!-- キューバーズ:cubirds -->
+      <a href="https://uu3675243-blip.github.io/CuBirds/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">キューバーズ:cubirds</div>
+          <div class="card-desc">キューバーズ:cubirds</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/CuBirds/</div>
+        </div>
+      </a>
+
+      <!-- エッセンス -->
+      <a href="https://uu3675243-blip.github.io/essence-order/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">エッセンス</div>
+          <div class="card-desc">エッセンス</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/essence-order/</div>
+        </div>
+      </a>
+
+      <!-- デッドマンズ・バレット -->
+      <a href="https://uu3675243-blip.github.io/Deadman-s-Bullet/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">デッドマンズ・バレット</div>
+          <div class="card-desc">デッドマンズ・バレット</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/Deadman-s-Bullet/</div>
+        </div>
+      </a>
+
+      <!-- ポーカー -->
+      <a href="https://uu3675243-blip.github.io/poker/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">ポーカー</div>
+          <div class="card-desc">ポーカー</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/poker/</div>
+        </div>
+      </a>
+
+      <!-- ミッドナイト・コード -->
+      <a href="https://uu3675243-blip.github.io/MIDNIGHT-CODE/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">ミッドナイト・コード</div>
+          <div class="card-desc">ミッドナイト・コード</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/MIDNIGHT-CODE/</div>
+        </div>
+      </a>
+
+      <!-- バックショットルーレット -->
+      <a href="https://uu3675243-blip.github.io/buckshot-roulette/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">バックショットルーレット</div>
+          <div class="card-desc">バックショット・ルーレットマルチプレイヤー・クローン。本家2～4人用ゲームを忠実に再現。</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/buckshot-roulette/</div>
+        </div>
+      </a>
+
+      <!-- 価格管理ver1.1 -->
+      <a href="https://script.google.com/macros/s/AKfycbzJ0P6N3tjYjxnxHHdQO0UUPO9a4TTvnjpJqqcA-A1jJXJmi9CZX_D-j0b5LL-f2p7ZKQ/exec" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">価格管理ver1.1</div>
+          <div class="card-desc">価格管理ver1.1</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://script.google.com/...</div>
+        </div>
+      </a>
+
+      <!-- 7列 -->
+      <a href="https://uu3675243-blip.github.io/7narabe/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">7列</div>
+          <div class="card-desc">7列</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/7narabe/</div>
+        </div>
+      </a>
+
+      <!-- 大富豪 -->
+      <a href="https://uu3675243-blip.github.io/daihugou/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">大富豪</div>
+          <div class="card-desc">大富豪</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/daihugou/</div>
+        </div>
+      </a>
+
+      <!-- ひらがじゃん -->
+      <a href="https://uu3675243-blip.github.io/hiragajan/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">ひらがじゃん</div>
+          <div class="card-desc">ひらがじゃん</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/hiragajan/</div>
+        </div>
+      </a>
+
+      <!-- うさぎと猟犬 -->
+      <a href="https://uu3675243-blip.github.io/usagitoryouken/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">うさぎと猟犬</div>
+          <div class="card-desc">ウサギと猟犬 逃げるウサギと追いこむ猟犬の2人用非対称戦略ボードゲーム。AI対戦・2人対戦・詳細ルール解説完備</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/usagitoryouken/</div>
+        </div>
+      </a>
+
+      <!-- おやつ争奪戦 -->
+      <a href="https://uu3675243-blip.github.io/oyatusoudatusen/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">おやつ争奪戦</div>
+          <div class="card-desc">おやつ争奪戦</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/oyatusoudatusen/</div>
+        </div>
+      </a>
+
+      <!-- ドットアンドボックス -->
+      <a href="https://uu3675243-blip.github.io/dottoandbox/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">ドットアンドボックス</div>
+          <div class="card-desc">ドットアンドボックスオンライン対戦 Firebase Realtime Databaseで遊べる2人対戦のドットアンドボックス</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/dottoandbox/</div>
+        </div>
+      </a>
+
+      <!-- はちみつ争奪戦 -->
+      <a href="https://uu3675243-blip.github.io/honeywant/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">はちみつ争奪戦</div>
+          <div class="card-desc">蜂の巣防衛戦 (Honey Comb Conquest) 全61マスのヘックス盤面で繰り広げられる頭脳戦！Webブラウザで即時にオンライン対戦。</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/honeywant/</div>
+        </div>
+      </a>
+
+      <!-- 新旅行プラン -->
+      <a href="https://uu3675243-blip.github.io/ryokou2/#/plan/plan_04a39053d93a" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">新旅行プラン</div>
+          <div class="card-desc">デートプラン管理 行きたい場所のストックから自動タイムライン計算、予算集計、スマホしおり閲覧まで対応したカップルのためのデートプラン管理アプリ。</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/ryokou2/</div>
+        </div>
+      </a>
+
+      <!-- 料理アプリ -->
+      <a href="https://uu3675243-blip.github.io/reshipi/" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-title">料理アプリ</div>
+          <div class="card-desc">料理レシピ 料理レシピの考え方アプリ - Instagram保存レシピの整理・評価・キッチン調理サポート</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-link-text">https://uu3675243-blip.github.io/reshipi/</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    // 検索機能（HTML内のテキストを自動走査）
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
